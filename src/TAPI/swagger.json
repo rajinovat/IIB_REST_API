@@ -1,0 +1,60 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "REST-API"
+  },
+  "basePath" : "/api",
+  "consumes" : [ "application/json", "application/x-www-form-urlencoded", "application/xml", "text/xml" ],
+  "produces" : [ "application/json", "application/xml", "text/xml", "application/javascript", "text/javascript" ],
+  "paths" : {
+    "/rest/operate" : {
+      "post" : {
+        "tags" : [ "rest" ],
+        "operationId" : "rest.operate",
+        "parameters" : [ {
+          "name" : "i",
+          "in" : "formData",
+          "required" : false,
+          "type" : "number",
+          "format" : "double"
+        }, {
+          "name" : "j",
+          "in" : "formData",
+          "required" : false,
+          "type" : "number",
+          "format" : "double"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request was successful",
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/rest/hello" : {
+      "get" : {
+        "tags" : [ "rest" ],
+        "operationId" : "rest.hello",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Request was successful",
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        },
+        "deprecated" : false
+      }
+    }
+  },
+  "definitions" : { },
+  "tags" : [ {
+    "name" : "rest"
+  } ]
+}

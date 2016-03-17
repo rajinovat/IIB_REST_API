@@ -1,0 +1,48 @@
+
+
+CREATE PROCEDURE rest_operate(IN j INTEGER, IN i INTEGER, INOUT output REFERENCE)
+LANGUAGE JAVA 
+EXTERNAL NAME "MyAdd.addNum";
+
+CREATE COMPUTE MODULE rest_operate_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		--CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+		DECLARE j INTEGER;
+		DECLARE i INTEGER;
+		--DECLARE logMessagePath CHARACTER 'Received request on path ' || InputLocalEnvironment.REST.Input.Path;
+		--DECLARE logMessageURI CHARACTER 'Received request on URI  ' || InputLocalEnvironment.REST.Input.URI;
+		--SET OutputRoot.JSON.Data.Message = InputLocalEnvironment.HTTP.Input.QueryString.j;
+		
+		
+		IF FIELDTYPE(InputLocalEnvironment.HTTP.Input.QueryString.j) IS NOT NULL THEN
+			SET j = CAST(InputLocalEnvironment.HTTP.Input.QueryString.j as INTEGER);
+		END IF;
+		IF FIELDTYPE(InputLocalEnvironment.HTTP.Input.QueryString.i) IS NOT NULL THEN
+ 		 SET i = CAST(InputLocalEnvironment.HTTP.Input.QueryString.i as INTEGER);
+		END IF;
+		CREATE LASTCHILD OF OutputRoot DOMAIN('JSON');
+		SET OutputRoot.JSON.Data TYPE = JSON.Array;
+		DECLARE output REFERENCE TO OutputRoot.JSON.Data;
+		CALL rest_operate(j, i,output);
+	
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
+
+
