@@ -11,8 +11,8 @@ $ git clone https://github.com/chamun506/IIB_REST_API.git to the Integration Dev
 
 
 ## Run the REST API in REST Client
--`http://localhost:7800/api/rest/hello`
--`http://localhost:7800/api/rest/operate?i=10&j=10`
+- `http://localhost:7800/api/rest/hello`
+- `http://localhost:7800/api/rest/operate?i=10&j=10`
 
 ## IIB_REST_API on IIB cloud
 ```
