@@ -6,10 +6,9 @@ Import the REST API project
 $ git clone https://github.com/chamun506/IIB_REST_API.git to the Integration Developement Workspace
 ```
 ## Deploy the REST API
-```
-Deploy or drag and drop the IIB_REST_API application on the integration server to deploy the REST API
-The base URL for the deployed REST API service is displayed in the Properties view. For example http://localhost:7800/api/rest/hello
-```
+- `Deploy or drag and drop the IIB_REST_API application on the integration server to deploy the REST API`
+- `The base URL for the deployed REST API service is displayed in the Properties view. For example http://localhost:7800/api/rest/hello`
+
 
 ## Run the REST API
 `Run the REST API in REST client`
