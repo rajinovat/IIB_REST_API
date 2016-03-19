@@ -10,8 +10,7 @@ $ git clone https://github.com/chamun506/IIB_REST_API.git to the Integration Dev
 - `The base URL for the deployed REST API service is displayed in the Properties view. For example http://localhost:7800/api/rest/hello`
 
 
-## Run the REST API
-`Run the REST API in REST client`
+## Run the REST API in REST Client
 -`http://localhost:7800/api/rest/hello`
 -`http://localhost:7800/api/rest/operate?i=10&j=10`
 
