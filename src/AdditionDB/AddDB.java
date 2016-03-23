@@ -18,6 +18,7 @@ public abstract class AddDB {
 	
 	public static void find(MbElement[] output) {
 		try {
+			// Code changes
 			MbElement root = output[0];
 			for (Add add : addition) {
 				MbElement item = root.createElementAsLastChild(MbJSON.OBJECT, MbJSON.ARRAY_ITEM_NAME, null);
@@ -25,6 +26,7 @@ public abstract class AddDB {
 				item.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "i", add.getI());
 				item.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "j", add.getJ());
 				item.createElementAsLastChild(MbElement.TYPE_NAME_VALUE, "k", add.getK());
+				
 		}
 		} catch (MbException e) {
 			throw new RuntimeException(e);
